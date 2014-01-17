@@ -60,7 +60,7 @@ class UserDataPlugin(base.BasePlugin):
             return (base.PLUGIN_EXECUTION_DONE, False)
 
         self._process_userdata(user_data)
-        return (base.PLUGIN_EXECUTION_DONE, False)
+        return (base.PLUGIN_EXECUTION_DONE, True)
 
     def _process_userdata(self, user_data):
         LOG.debug('User data content:\n%s' % user_data)
