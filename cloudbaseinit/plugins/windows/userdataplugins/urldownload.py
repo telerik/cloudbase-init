@@ -65,13 +65,9 @@ class URLDownloadPlugin(base.BaseUserDataPlugin):
 
     def _do_include(self, content):
         # Include a list of urls, one per line
-        # supports '#download <url here>'
+        # lines starting with # are treated as comments
+        # empty lines are skipped
         for line in content.splitlines():
-            lc_line = line.lower()
-            if lc_line.startswith("#download"):
-                line = line[len("#download"):].lstrip()
-                # Disable the include once if it was on
-                # if it wasn't, then this has no effect.
             if line.startswith("#"):
                 continue
             download_url = line.strip()
